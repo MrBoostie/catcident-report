@@ -1,0 +1,19 @@
+{
+  "name": "catcident-report",
+  "version": "0.1.0",
+  "description": "Generate deeply unserious cat incident reports.",
+  "type": "module",
+  "bin": {
+    "catcident": "./bin/catcident.js"
+  },
+  "scripts": {
+    "start": "node ./bin/catcident.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "cat",
+    "cli",
+    "joke"
+  ],
+  "license": "MIT"
+}
