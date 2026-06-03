@@ -1,7 +1,7 @@
 {
   "name": "catcident-report",
   "version": "0.1.0",
-  "description": "Generate deeply unserious cat incident reports.",
+  "description": "Generate deeply unserious cat incident reports for failed pipelines.",
   "type": "module",
   "bin": {
     "catcident": "./bin/catcident.js"
@@ -11,6 +11,9 @@
     "test": "node --test"
   },
   "keywords": [
+    "github-action",
+    "pipeline",
+    "ci",
     "cat",
     "cli",
     "joke"

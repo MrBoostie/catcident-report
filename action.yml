@@ -1,0 +1,56 @@
+name: Catcident Report
+description: Add an absurd cat incident report to a failed GitHub Actions pipeline.
+author: MrBoostie
+
+branding:
+  icon: alert-triangle
+  color: orange
+
+inputs:
+  seed:
+    description: Stable seed for repeatable reports. Defaults to workflow, run, and job context.
+    required: false
+    default: ""
+  heading:
+    description: Step summary heading.
+    required: false
+    default: Catcident Report
+
+outputs:
+  report:
+    description: The generated catcident report.
+    value: ${{ steps.catcident.outputs.report }}
+
+runs:
+  using: composite
+  steps:
+    - id: catcident
+      shell: bash
+      run: |
+        set -euo pipefail
+
+        seed="${{ inputs.seed }}"
+        if [ -z "$seed" ]; then
+          seed="${GITHUB_WORKFLOW:-workflow}-${GITHUB_RUN_ID:-run}-${GITHUB_JOB:-job}"
+        fi
+
+        report="$(node "$GITHUB_ACTION_PATH/bin/catcident.js" --seed="$seed")"
+
+        if [ -n "${GITHUB_STEP_SUMMARY:-}" ]; then
+          {
+            echo "### ${{ inputs.heading }}"
+            echo
+            echo '```text'
+            echo "$report"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+        fi
+
+        delimiter="CATCIDENT_$(date +%s)_$RANDOM"
+        {
+          echo "report<<$delimiter"
+          echo "$report"
+          echo "$delimiter"
+        } >> "$GITHUB_OUTPUT"
+
+        echo "$report"
