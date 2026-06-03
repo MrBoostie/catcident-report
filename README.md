@@ -1,8 +1,21 @@
 # catcident-report
 
+[![Catcident on failure](https://github.com/MrBoostie/catcident-report/actions/workflows/catcident-on-failure.yml/badge.svg)](https://github.com/MrBoostie/catcident-report/actions/workflows/catcident-on-failure.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Template repo](https://img.shields.io/badge/template-ready-orange.svg)](https://github.com/new?template_name=catcident-report&template_owner=MrBoostie)
+
 Generate deeply unserious cat incident reports from the command line or from a failed GitHub Actions pipeline.
 
 Use this repo as a template when you want your CI failures to leave behind a tiny incident report instead of only a wall of red text.
+
+## Features
+
+- Composite GitHub Action for failed CI jobs
+- Writes reports to the GitHub Actions step summary
+- Exposes the generated report as an action output
+- Zero runtime dependencies
+- Seeded output for repeatable pipeline nonsense
+- Easy phrase customization in `src/generate.js`
 
 ## GitHub Actions
 

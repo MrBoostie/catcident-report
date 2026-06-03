@@ -2,6 +2,14 @@
   "name": "catcident-report",
   "version": "0.1.0",
   "description": "Generate deeply unserious cat incident reports for failed pipelines.",
+  "homepage": "https://github.com/MrBoostie/catcident-report#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrBoostie/catcident-report.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MrBoostie/catcident-report/issues"
+  },
   "type": "module",
   "bin": {
     "catcident": "./bin/catcident.js"
@@ -12,9 +20,17 @@
   },
   "keywords": [
     "github-action",
+    "github-actions",
+    "actions",
+    "continuous-integration",
     "pipeline",
+    "failure",
+    "template",
+    "template-repository",
     "ci",
     "cat",
+    "cats",
+    "humor",
     "cli",
     "joke"
   ],
